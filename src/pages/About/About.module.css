@@ -1,0 +1,61 @@
+.about {
+  margin-top: 60px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 80px;
+}
+
+.left {
+  flex: 1;
+}
+
+.left h1 {
+  font-size: 56px;
+  margin-bottom: 40px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #f2f2f2;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.big {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.small {
+  font-size: 18px;
+}
+
+.right {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .left h1 {
+    font-size: 32px;
+  }
+}
