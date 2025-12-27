@@ -50,6 +50,81 @@
   line-height: 1.6;
 }
 
+.brands {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 72px;
+  margin-bottom: 105px;
+}
+
+.brands img {
+  max-width: 160px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.blogCard img {
+  width: 100%;
+  border-radius: 16px;
+  padding-bottom: 29px;
+}
+
+.blogCard p:nth-child(2) {
+  padding-bottom: 24px;
+}
+
+.blogWord {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 24px;
+}
+
+.blogDate {
+  color: #454545;
+  font-size: 14px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionHeader h2 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.sectionHeader button {
+  background: transparent;
+  border: 1px solid #454545;
+  padding: 14px 48px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.sectionHeaderButton > span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #454545;
+}
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;

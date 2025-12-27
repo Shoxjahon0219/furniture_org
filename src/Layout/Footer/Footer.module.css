@@ -116,3 +116,35 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 0;
+    margin-top: 40px;
+  }
+
+  .container {
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .phone {
+    text-align: center;
+  }
+
+  .policies {
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .column ul {
+    justify-items: start;
+  }
+}

@@ -1,100 +1,87 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import v from "../../assets/vector2.png"
-import v2 from "../../assets/vector3.png";
-import v3 from "../../assets/vector4.png";
-import v4 from "../../assets/vector5.png";
-import v5 from "../../assets/vector6.png";
-import cs from "./Navbar.module.css"
+import React, { useRef } from "react";
+import NavbarTop from "./components/NavbarTop";
+import NavbarMain from "./components/NavbarMain";
+
+import { NavbarWrapper } from "./Navbar.styled";
+import HamburgerIcon from "../../components/icons/src/Hamburger.icon";
+import {
+  CartIcon,
+  CatalogIcon,
+  CloseIcon,
+  HeartIcon,
+  SearchIcon,
+} from "../../components";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const mobNavRef = useRef(null);
+
+  const handleOpen = () => {
+    mobNavRef.current.classList.toggle("visible");
+  };
 
   return (
-    <div className={cs.navbar}>
-      <div className={cs.wul}>
-        <div className={cs.mobileMenuToggle}>
-          <button
-            className={cs.hamburger}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-        <ul className={`${cs.navUl} ${isMenuOpen ? cs.navUlOpen : ''}`}>
-          <li>
-            <Link to="/about"> О компании </Link>
-          </li>
-          <li>
-            <Link to="/deliveryandpay"> Доставка и оплата </Link>
-          </li>
-          <li>
-            <Link to="/">Возврат </Link>
-          </li>
-          <li>
-            <Link to="/"> Гарантии </Link>
-          </li>
-          <li>
-            <Link to="/"> Контакты </Link>
-          </li>
-          <li>
-            <Link to="/">Блог </Link>
-          </li>
-        </ul>
-        <div className={cs.ws}>
-          <span className={cs.phoneNumber}>8 (800) 890-46-56</span>
-          <span className={cs.callback}>Заказать звонок</span>
-        </div>
+    <NavbarWrapper>
+      <div className="container desktop-content">
+        <NavbarTop />
+        <NavbarMain />
       </div>
 
-      <div className={cs.navp}>
-        <div className={cs.navp1}>
-          <img src={v} alt="" />
-          <span>NORNLIGHT</span>
-        </div>
-
-        <div className={cs.navp2}>
-          <button className={cs.catalogBtn}>
-            <img src={v2} alt="" /> Каталог
+      <div className="container mobile-content">
+        <div className="mobile-header">
+          <button onClick={handleOpen} className="hamburger-btn">
+            <HamburgerIcon />
           </button>
 
-          <div className={`${cs.searchContainer} ${isSearchVisible ? cs.searchVisible : ''}`}>
-            <input type="text" placeholder="Поиск по товарам" />
-            <button
-              className={cs.searchClose}
-              onClick={() => setIsSearchVisible(false)}
-            >
-              ✕
+          <img src="/logo.svg" alt="Logo" className="mobile-logo" />
+
+          <div className="mobile-icons">
+            <button className="mobile-icon-btn">
+              <HeartIcon />
+            </button>
+            <button className="mobile-icon-btn">
+              <CartIcon />
+            </button>
+          </div>
+        </div>
+
+        <div ref={mobNavRef} className="mobile-opening-content">
+          <div className="mobile-nav-header">
+            <div></div>
+            <button onClick={handleOpen} className="close-btn">
+              <CloseIcon />
             </button>
           </div>
 
-          <button
-            className={cs.searchToggle}
-            onClick={() => setIsSearchVisible(true)}
-          >
-            🔍
-          </button>
+          <div className="mobile-search">
+            <div className="input-wrapper">
+              <input type="text" placeholder="Поиск по товарам" />
+              <span className="search-icon-wrap">
+                <SearchIcon />
+              </span>
+            </div>
+          </div>
 
-          <div className={cs.navIcons}>
-            <div className={cs.navIcon}>
-              <img src={v3} alt="Избранное" />
-              <p>Избранное</p>
-            </div>
-            <div className={cs.navIcon}>
-              <img src={v4} alt="Сравнение" />
-              <p>Сравнение</p>
-            </div>
-            <div className={cs.navIcon}>
-              <img src={v5} alt="Корзина" />
-              <p>Корзина</p>
-            </div>
+          <Link to={"catalog"} className="mobile-catalog-btn">
+            <CatalogIcon />
+            <span>Каталог</span>
+          </Link>
+
+          <div className="mobile-links">
+            <a href="tel:88008904656" className="mobile-phone">
+              <span>8 (800) 890-46-56</span>
+            </a>
+            <Link to="/about">О компании</Link>
+            <Link to="/deliveryandpay">Доставка и оплата</Link>
+            <Link to="/">Возврат</Link>
+            <Link to="/">Гарантии</Link>
+            <Link to="/">Контакты</Link>
+            <Link to="/">Блог</Link>
+            <button className="call-back-btn">Заказать звонок</button>
           </div>
         </div>
       </div>
-    </div>
+    </NavbarWrapper>
   );
 }
 

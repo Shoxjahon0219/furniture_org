@@ -19,8 +19,10 @@ import blog3 from "../../assets/blog3.png";
 import brand1 from "../../assets/brand1.png";
 import brand2 from "../../assets/brand2.png";
 import brand3 from "../../assets/brand3.png";
+import { Arrow, PochNorIcon1 } from "../../components/icons";
+import { Link } from "react-router-dom";
 
-function Home () {
+function Home() {
   return (
     <main className={cls.home}>
       <section className={cls.hero}>
@@ -38,29 +40,71 @@ function Home () {
       <section className={cls.section}>
         <div className={cls.sectionHeader}>
           <h2>Каталог</h2>
-          <button>Весь каталог →</button>
+          <Link to={"catalog"}>
+            <button className={cls.sectionHeaderButton}>
+              <span>Весь каталог&ensp;&ensp;&ensp;→</span>
+            </button>
+          </Link>
         </div>
 
         <div className={cls.catalogGrid}>
-          {[cat1, cat2, cat3, cat4, cat5, cat6].map((img, i) => (
+          {[
+            { img: cat1, text: "Люстры" },
+            { img: cat2, text: "Светильники" },
+            { img: cat3, text: "Бра" },
+            { img: cat4, text: "Торшеры" },
+            { img: cat5, text: "Настольные лампы" },
+            { img: cat6, text: "Споты" },
+          ].map((prd, i) => (
             <div key={i} className={cls.catalogCard}>
-              <img src={img} alt="" />
-              <p>От 5 400 ₽</p>
+              <div>
+                <p className={cls.catalogText}>{prd.text}</p>
+                <p>От 540 ₽ →</p>
+              </div>
+
+              <img src={prd.img} alt="" />
             </div>
           ))}
         </div>
       </section>
 
       <section className={cls.section}>
-        <div className={cls.sectionHeader}>
+        <header className={cls.sectionHeader}>
           <h2>Почему NORNLIGHT?</h2>
-        </div>
+        </header>
 
         <div className={cls.whyGrid}>
-          <div>Только проверенные бренды</div>
-          <div>Самые низкие цены</div>
-          <div>Быстрая доставка</div>
-          <div>Большой ассортимент</div>
+          <article className={cls.whyCard}>
+            <div className={cls.icon}>
+              <PochNorIcon1 />
+            </div>
+            <h3>Только проверенные бренды</h3>
+            <p>Бренды, проверенные временем и качеством.</p>
+          </article>
+
+          <article className={cls.whyCard}>
+            <div className={cls.icon}>
+              <PochNorIcon1 />
+            </div>
+            <h3>Самые низкие цены</h3>
+            <p>Ниже не будет нигде.</p>
+          </article>
+
+          <article className={cls.whyCard}>
+            <div className={cls.icon}>
+              <PochNorIcon1 />
+            </div>
+            <h3>Быстрая доставка</h3>
+            <p>Доставляем по всей РФ за 1–10 дней.</p>
+          </article>
+
+          <article className={cls.whyCard}>
+            <div className={cls.icon}>
+              <PochNorIcon1 />
+            </div>
+            <h3>Большой ассортимент</h3>
+            <p>Более 1000 товаров.</p>
+          </article>
         </div>
       </section>
 
@@ -101,13 +145,42 @@ function Home () {
           {[blog1, blog2, blog3].map((img, i) => (
             <div key={i} className={cls.blogCard}>
               <img src={img} />
-              <p>Как правильно осветить дом снаружи?</p>
+              <div className={cls.blogWord}>
+                <p>Как правильно осветить дом снаружи?</p>
+                <Arrow />
+              </div>
+              <p className={cls.blogDate}>01.01.2024</p>
             </div>
           ))}
         </div>
       </section>
+
+      <section className={cls.section}>
+        <div className={cls.productionWrapper}>
+          <div className={cls.productionLeft}>
+            <h2>Производство светильников</h2>
+          </div>
+          <div className={cls.productionRight}>
+            <p>
+              Интернет-магазин NORNLIGHT предлагает широкий ассортимент
+              светильников для освещения вашего дома или офиса. У нас вы найдете
+              разнообразные модели светильников, от современных и стильных до
+              классических и элегантных. Мы предлагаем качественные и надёжные
+              светильники от лучших производителей, которые подарят вам комфорт
+              и уют.
+            </p>
+            <p>
+              Покупая светильники в нашем интернет-магазине, вы получаете
+              отличное соотношение цены и качества. Мы осуществляем доставку по
+              всей России, чтобы каждый клиент мог насладиться прекрасным светом
+              и удобством покупки онлайн. Обратитесь к нам сегодня и превратите
+              ваш дом в оазис тепла и света с NORNLIGHT!
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
   );
-};
+}
 
 export default Home;

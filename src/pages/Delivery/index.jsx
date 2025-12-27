@@ -1,12 +1,13 @@
 import React from "react";
-import cls from "./Shipping.module.css";
+import cls from "./Delivery.module.css";
 import arrow from "../../assets/vector1.png";
+import { Link } from "react-router-dom";
 
-function Shipping() {
+function Delivery() {
   return (
-    <section className={cls.shipping}>
+    <section className={cls.Delivery}>
       <p className={cls.breadcrumb}>
-        <span>Главная</span>
+        <Link to={"/"}>Главная</Link>
         <img src={arrow} alt="" />
         <span>Доставка и оплата</span>
       </p>
@@ -33,4 +34,4 @@ function Shipping() {
   );
 }
 
-export default Shipping;
+export default Delivery;

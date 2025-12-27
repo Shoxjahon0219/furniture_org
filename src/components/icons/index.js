@@ -1,0 +1,10 @@
+export { default as CatalogIcon } from "./src/Catalog.icon";
+export { default as SearchIcon } from "./src/Search.icon";
+export { default as HeartIcon } from "./src/Heart.icon";
+export { default as NetworkIcon } from "./src/Network.icon";
+export { default as CartIcon } from "./src/Cart.icon";
+export { default as Arrow } from "./src/Arrow.icon";
+export { default as Hamburger } from "./src/Hamburger.icon";
+export { default as CloseIcon } from "./src/CloseIcon.icon";
+export { default as TrashIcon } from "./src/Trash.icon";
+export { default as PochNorIcon1 } from "./src/Pochnor.icon";
