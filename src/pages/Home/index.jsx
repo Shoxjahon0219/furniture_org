@@ -69,9 +69,14 @@ function Home() {
       </section>
 
       <section className={cls.section}>
-        <header className={cls.sectionHeader}>
+        <div className={cls.sectionHeader}>
           <h2>Почему NORNLIGHT?</h2>
-        </header>
+          <Link to={"about"}>
+            <button className={cls.sectionHeaderButton}>
+              <span>О компании&ensp;&ensp;&ensp;→</span>
+            </button>
+          </Link>
+        </div>
 
         <div className={cls.whyGrid}>
           <article className={cls.whyCard}>
@@ -111,15 +116,25 @@ function Home() {
       <section className={cls.section}>
         <div className={cls.sectionHeader}>
           <h2>Популярные товары</h2>
-          <button>Все товары →</button>
+
+          <Link to={"allproducts"}>
+            <button className={cls.sectionHeaderButton}>
+              <span>Все товары&ensp;&ensp;&ensp;→</span>
+            </button>
+          </Link>
         </div>
 
         <div className={cls.productsGrid}>
           {[...Array(8)].map((_, i) => (
             <div key={i} className={cls.productCard}>
-              <img src={product} alt="" />
-              <p>Встраиваемый светильник Novotech</p>
-              <strong>6 399 ₽</strong>
+              <Link to={`detail/${i}`}>
+                <img src={product} alt="" />
+                <div className={cls.price}>
+                  <p>Встраиваемый светильник Novotech</p>
+                  <del className={cls.delPrice}>7 000₽</del>
+                  <strong>6 399 ₽</strong>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -138,7 +153,9 @@ function Home() {
       <section className={cls.section}>
         <div className={cls.sectionHeader}>
           <h2>Блог</h2>
-          <button>Перейти в блог →</button>
+          <button>
+            <Link to={"blog"} className="link">Перейти в блог →</Link>
+          </button>
         </div>
 
         <div className={cls.blogGrid}>

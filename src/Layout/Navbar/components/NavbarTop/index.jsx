@@ -13,10 +13,10 @@ function NavbarTop(props) {
       <NavTopSide>
         <CustomNavLink to="/about">О компании</CustomNavLink>
         <CustomNavLink to="/deliveryandpay">Доставка и оплата</CustomNavLink>
-        <CustomNavLink to="/">Возврат</CustomNavLink>
-        <CustomNavLink to="/">Гарантии</CustomNavLink>
-        <CustomNavLink to="/">Контакты</CustomNavLink>
-        <CustomNavLink to="/">Блог</CustomNavLink>
+        <CustomNavLink to="/return">Возврат</CustomNavLink>
+        <CustomNavLink to="/garant">Гарантии</CustomNavLink>
+        <CustomNavLink to="/contacts">Контакты</CustomNavLink>
+        <CustomNavLink to="/blog">Блог</CustomNavLink>
       </NavTopSide>
       <NavTopSide>
         <PhoneLink href="tel:88008904656">8 (800) 890-46-56</PhoneLink>

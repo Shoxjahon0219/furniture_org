@@ -1,7 +1,7 @@
 import React from "react";
 import { CatalogWrapper } from "./Catalog.styled";
 import { Link } from "react-router-dom";
-import arrow from "../../assets/vector1.png";
+import arrow from "../../assets/vector1.svg";
 
 import cat1 from "../../assets/cat1.png";
 import cat2 from "../../assets/cat2.png";
@@ -32,7 +32,7 @@ function Catalog(props) {
         <img src={arrow} alt="" />
         <span>Каталог</span>
       </p>
-
+      <h1 className="title">Каталог</h1>
       <div className="catalogGrid">
         {[
           { img: cat1, text: "Люстры" },
@@ -75,23 +75,29 @@ function Catalog(props) {
         <img src={brand3} />
         <img src={brand1} />
       </div>
-      <div className={"sectionHeader"}>
-        <h2>Блог</h2>
-        <button>Перейти в блог →</button>
-      </div>
+      <section className={"section"}>
+        <div className={"sectionHeader"}>
+          <h2>Блог</h2>
+          <button>
+            <Link to={"/blog"} className="link">
+              Перейти в блог →
+            </Link>
+          </button>
+        </div>
 
-      <div className={"blogGrid"}>
-        {[blog1, blog2, blog3].map((img, i) => (
-          <div key={i} className={"blogCard"}>
-            <img src={img} />
-            <div className={"blogWord"}>
-              <p>Как правильно осветить дом снаружи?</p>
-              <Arrow />
+        <div className={"blogGrid"}>
+          {[blog1, blog2, blog3].map((img, i) => (
+            <div key={i} className={"blogCard"}>
+              <img src={img} />
+              <div className={"blogWord"}>
+                <p>Как правильно осветить дом снаружи?</p>
+                <Arrow />
+              </div>
+              <p className={"blogDate"}>01.01.2024</p>
             </div>
-            <p className={"blogDate"}>01.01.2024</p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
     </CatalogWrapper>
   );
 }

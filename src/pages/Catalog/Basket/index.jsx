@@ -1,6 +1,6 @@
 import React from "react";
 import { BasketWrapper } from "./Basket.styled";
-import arrow from "../../../assets/vector1.png";
+import arrow from "../../../assets/vector1.svg";
 import chandelier from "../../../assets/chandelier.png";
 import { Link } from "react-router-dom";
 import { TrashIcon } from "../../../components/icons";

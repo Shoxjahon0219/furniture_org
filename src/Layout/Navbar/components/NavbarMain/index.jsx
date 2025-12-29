@@ -33,9 +33,11 @@ function NavbarMain(props) {
         </div>
       </SearchWrapper>
       <NavigationItems>
-        <div className="item">
-          <HeartIcon />
-          <span>Избранное</span>
+        <div>
+          <Link to={"/favorites"} className="item">
+            <HeartIcon />
+            <span>Избранное</span>
+          </Link>
         </div>
         <div className="item">
           <NetworkIcon />
